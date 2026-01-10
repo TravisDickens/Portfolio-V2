@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin } from "lucide-react";
 import Link from "next/link";
-import { ThemeToggle } from "./theme-toggle";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 
@@ -31,7 +30,7 @@ export function Navbar() {
             </div>
             <div className="leading-tight text-sm text-zinc-800 dark:text-zinc-200">
               <p className="font-semibold tracking-tight text-slate-900 dark:text-white">Travis Dickens</p>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400">Junior Software Developer · AI/ML & Backend</p>
+              <p className="text-xs text-zinc-500 dark:text-zinc-400">Junior Software Engineer · AI/ML</p>
             </div>
           </div>
           <nav className="hidden items-center gap-6 text-sm text-zinc-800 dark:text-zinc-200 md:flex">
@@ -56,9 +55,10 @@ export function Navbar() {
                 <Linkedin className="h-4 w-4" />
               </IconLink>
             </div>
-            <ThemeToggle />
             <Button asChild className="hidden sm:inline-flex">
-              <Link href="#contact">Let&apos;s talk</Link>
+              <Link href="/Travis%20Dickens%20CV.pdf" target="_blank" rel="noopener noreferrer">
+                Resume
+              </Link>
             </Button>
           </div>
         </div>

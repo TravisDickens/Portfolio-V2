@@ -1,16 +1,16 @@
 export const hero = {
   name: "Travis Dickens",
   role: "Junior Software Developer",
-  tagline: "Building AI-assisted, full-stack solutions with reliable backends.",
+  tagline: "Building AI and full-stack solutions.",
   location: "South Africa",
   availability: "Open to junior software / AI-ML / backend roles",
 };
 
 export const about = {
-  title: "AI-leaning full-stack developer with a backend backbone.",
+  title: "Junior Software Engineer building data-driven and real-world solutions",
   body: [
-    "I’m a junior software developer focused on AI/ML-assisted products, backend services, and clean, maintainable full-stack code.",
-    "I enjoy taking an idea from API design through data and UI, collaborating with cross-functional teams to ship reliable, impactful features.",
+    "I’m a junior software Engineer with experience across front-end and back-end technologies, building practical, data-driven solutions and integrating APIs into real-world applications.",
+    "I enjoy working in Agile, collaborative environments and tackling complex problems especially projects with real-world impact where I can apply AI and machine learning concepts while continuously growing as an engineer.",
   ],
   stack: [
     "Java",
@@ -39,18 +39,18 @@ export const projects: Project[] = [
   {
     title: "Real-Time Stock Market Analyzer",
     description:
-      "Full-stack dashboard with live candlestick charts, pattern detection, and algorithmic signal generation (moving average crossovers). Responsive charts with LightweightCharts and Spring Boot REST APIs serving OHLC data with async updates.",
+      "Full-stack dashboard with live candlestick charts, pattern detection, and algorithmic signal generation. Responsive charts with LightweightCharts and Spring Boot REST APIs serving OHLC data with async updates.",
     tech: ["Java", "Spring Boot", "JavaScript", "REST", "LightweightCharts"],
-    github: "https://github.com/TravisDickens/stock-market-analyzer",
-    demo: "https://github.com/TravisDickens/stock-market-analyzer",
+    github: "https://github.com/TravisDickens/Stock-Market-Analyser",
+    demo: "",
   },
   {
     title: "NGO Website & Mobile App",
     description:
       "Event management, volunteer applications, and donation flows with secure Zapper payments. Firebase Auth with role-based access, SMTP notifications, and Kotlin mobile client alongside ASP.NET web experience.",
     tech: ["ASP.NET", "C#", "Firebase", "SMTP", "Kotlin", "Zapper API"],
-    github: "https://github.com/TravisDickens/ngo-platform",
-    demo: "https://github.com/TravisDickens/ngo-platform",
+    github: "",
+    demo: "https://www.ilkfoundation.co.za/",
   },
 ];
 
@@ -64,15 +64,16 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    company: "Forvis Mazars · Innovation & Technology Hub",
-    role: "AI/ML Learnership (Junior Software Developer)",
+    company: "Forvis Mazars · Innovation and Technology Hub",
+    role: "AI/ML Intern",
     period: "Aug 2025 – Present",
     summary:
-      "Building and studying AI/ML models that support audit and business solutions while contributing to internal software projects for efficiency and automation.",
+      "Working within the Innovation and Technology Hub to support audit and business teams through AI/ML models and internal software development.",
     highlights: [
-      "Prototyped and evaluated AI/ML models for data-driven decisioning in audit contexts.",
-      "Delivered internal tools that automate workflows and improve cross-team efficiency.",
-      "Collaborated across functions to integrate AI tools into business processes using Python and data analytics.",
+      "Building and studying AI/ML models to support innovation in audit and data-driven business solutions.",
+      "Contributed to internal software projects focused on efficiency, automation, and data-driven decision making.",
+      "Collaborated with cross-functional teams to integrate AI into existing business processes.",
+      "Gained hands-on experience with Python, data analytics, and applied machine learning concepts.",
     ],
   },
 ];
@@ -80,19 +81,19 @@ export const experience: Experience[] = [
 export const skills = [
   {
     category: "Frontend",
-    items: ["HTML", "CSS", "JavaScript", "React.js", "Tailwind CSS"],
+    items: ["HTML", "CSS", "JavaScript", "React.js", "Next.js", "Tailwind CSS"],
   },
   {
     category: "Backend",
     items: ["Java", "C# / .NET", "Python", "Spring Boot", "REST APIs", "Node.js", "Express.js"],
   },
   {
-    category: "Data & Cloud",
-    items: ["MongoDB", "MySQL", "Firebase", "Azure", "Docker"],
+    category: "Data and Cloud",
+    items: ["MongoDB", "MySQL", "Firebase", "Azure", "Docker", "AWS"],
   },
   {
     category: "Practices & Tools",
-    items: ["Git", "GitHub", "Agile / SDLC", "API Integrations", "Cyber Security basics"],
+    items: ["Git", "GitHub", "CI/CD", "API Integrations", "CircleCI", "SonarQube"],
   },
 ];
 

@@ -44,7 +44,7 @@ export default function Home() {
           <ExperienceSection />
           <SkillsSection />
           <ContactSection />
-          <BlogSection />
+         
         </div>
       </motion.main>
     </MotionConfig>
@@ -53,7 +53,7 @@ export default function Home() {
 
 function HeroSection() {
   return (
-  <Section className="relative overflow-hidden rounded-3xl border border-black/10 bg-white/90 p-8 sm:p-12 shadow-[0_30px_120px_-50px_rgba(0,0,0,0.2)] dark:border-white/10 dark:bg-white/2 dark:shadow-[0_30px_120px_-50px_rgba(0,0,0,0.8)]">
+    <Section className="relative overflow-hidden rounded-3xl border border-black/10 bg-white/90 p-8 sm:p-12 shadow-[0_30px_120px_-50px_rgba(0,0,0,0.2)] dark:border-white/10 dark:bg-white/2 dark:shadow-[0_30px_120px_-50px_rgba(0,0,0,0.8)]">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(125,211,252,0.16),transparent_28%),radial-gradient(circle_at_80%_10%,rgba(196,181,253,0.12),transparent_30%),radial-gradient(circle_at_50%_120%,rgba(248,180,0,0.12),transparent_30%)]" />
       <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
         <motion.div
@@ -88,22 +88,20 @@ function HeroSection() {
                 Email
               </Link>
             </Button>
-            <div className="flex items-center gap-2 text-sm text-zinc-700 dark:text-zinc-300">
-              <div className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_0_8px_rgba(16,185,129,0.25)]" aria-hidden />
-              {hero.availability}
-            </div>
+
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <HighlightCard
-                icon={<Palette className="h-4 w-4" />}
-                title="AI/ML & data"
-                copy="Exploring models and data pipelines that turn signals into decisions for audit and business workflows."
+              icon={<Palette className="h-4 w-4" />}
+              title="AI/ML and data"
+              copy="Exploring machine learning and data pipelines that turn signals into actionable insights."
             />
             <HighlightCard
               icon={<Braces className="h-4 w-4" />}
-                title="Full-stack delivery"
-                copy="Building reliable backends and usable UIs with Java, .NET, and React—shipping end-to-end features safely."
+              title="Full-stack delivery"
+              copy="Building reliable backends and usable UIs with Java, .NET, and React, shipping end-to-end features safely."
             />
+
           </div>
         </motion.div>
         <motion.div
@@ -114,14 +112,22 @@ function HeroSection() {
           <div className="relative flex h-full flex-col justify-between">
             <div className="space-y-2">
               <p className="text-sm uppercase tracking-[0.24em] text-cyan-100">Now</p>
-              <p className="text-2xl font-semibold text-white">Building AI/ML prototypes and full-stack tools.</p>
+              <p className="text-2xl font-semibold text-white">Building AI/ML models and full-stack software.</p>
             </div>
             <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-zinc-200 shadow-inner shadow-white/5">
               <div>
                 <p className="font-semibold text-white">Forvis Mazars</p>
-                <p className="text-zinc-400">AI/ML Learnership</p>
+                <p className="text-zinc-400">AI/ML Intern</p>
               </div>
-              <ArrowUpRight className="h-5 w-5 text-cyan-200" />
+
+              <Link
+                href="https://www.forvismazars.com/group/en"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Forvis Mazars website"
+              >
+                <ArrowUpRight className="h-5 w-5 text-cyan-200 hover:text-cyan-300 transition-colors" />
+              </Link>
             </div>
           </div>
         </motion.div>
@@ -162,8 +168,8 @@ function ProjectsSection() {
     <Section id="projects" className="mt-24 space-y-8">
       <SectionHeader
         kicker="Projects"
-        title="Projects focused on AI, backend, and full-stack impact."
-        description="Selected work spanning real-time data, secure platforms, and end-to-end delivery."
+        title="Projects focused on AI, backend, and real-world software impact."
+        description="Selected work built for real-world usage."
       />
       <div className="grid gap-6 md:grid-cols-2">
         {projects.map((project) => (
@@ -180,7 +186,7 @@ function ExperienceSection() {
       <SectionHeader
         kicker="Experience"
         title="Where I'm growing."
-        description="Hands-on AI/ML learnership work and internal tools that improve automation and decision-making."
+        description="Helping teams achieve goals through practical solutions."
       />
       <div className="space-y-4">
         {experience.map((role) => (
@@ -220,7 +226,7 @@ function SkillsSection() {
       <SectionHeader
         kicker="Skills"
         title="What I bring to the table."
-        description="A balance of design sensibility, reliable engineering, and collaborative delivery."
+        description="A balance of design, reliable engineering, and collaborative delivery."
       />
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {skills.map((group) => (
@@ -258,9 +264,9 @@ function ContactSection() {
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">
               Contact
             </p>
-            <h3 className="text-3xl font-semibold text-slate-900 dark:text-white">Let&apos;s build something considered.</h3>
+            <h3 className="text-3xl font-semibold text-slate-900 dark:text-white">Let&apos;s build something great.</h3>
             <p className="text-lg text-zinc-700 dark:text-zinc-300">
-              I’m open to junior software roles, internships, and collaborations across AI/ML, backend, and full-stack work. Tell me about the problem and timeline, and we’ll find a clear path.
+              I’m open to junior software engineering roles across AI/ML, backend, and full-stack development.
             </p>
             <div className="flex flex-wrap gap-3">
               <Button asChild>
@@ -286,25 +292,19 @@ function ContactSection() {
           <div className="w-full max-w-sm rounded-2xl border border-black/10 bg-white p-6 text-sm text-zinc-700 shadow-inner shadow-black/5 dark:border-white/10 dark:bg-black/40 dark:text-zinc-300 dark:shadow-white/5">
             <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-300">
               <div className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
-              <span>Based in South Africa · Remote friendly</span>
+              <span>Based in South Africa</span>
             </div>
             <p className="mt-3 leading-relaxed">
               I respond within 48 hours. Include a short note about your team, tech stack, and what success looks like.
             </p>
-            <div className="mt-4 flex items-center gap-3 rounded-xl border border-black/10 bg-white/80 px-4 py-3 text-slate-900 dark:border-white/10 dark:bg-white/5 dark:text-white">
-              <ArrowDownRight className="h-4 w-4 text-cyan-600 dark:text-cyan-200" />
-              <div>
-                <p className="text-slate-900 dark:text-white">Calendly</p>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400">15-minute chemistry call</p>
-              </div>
-            </div>
+           
           </div>
         </div>
       </div>
     </Section>
   );
 }
-
+/*
 function BlogSection() {
   return (
     <Section id="blog" className="mt-20">
@@ -322,7 +322,7 @@ function BlogSection() {
     </Section>
   );
 }
-
+*/
 function HighlightCard({
   icon,
   title,
