@@ -1,6 +1,6 @@
 export const hero = {
   name: "Travis Dickens",
-  role: "Junior Software Developer",
+  role: "Junior Software Engineer",
   tagline: "Building AI and full-stack solutions.",
   location: "South Africa",
   availability: "Open to junior software / AI-ML / backend roles",
