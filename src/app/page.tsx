@@ -289,16 +289,7 @@ function ContactSection() {
               </Button>
             </div>
           </div>
-          <div className="w-full max-w-sm rounded-2xl border border-black/10 bg-white p-6 text-sm text-zinc-700 shadow-inner shadow-black/5 dark:border-white/10 dark:bg-black/40 dark:text-zinc-300 dark:shadow-white/5">
-            <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-300">
-              <div className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
-              <span>Based in South Africa</span>
-            </div>
-            <p className="mt-3 leading-relaxed">
-              I respond within 48 hours. Include a short note about your team, tech stack, and what success looks like.
-            </p>
-           
-          </div>
+          
         </div>
       </div>
     </Section>

@@ -8,10 +8,10 @@ export const hero = {
 
 export const about = {
   title: "Junior Software Engineer building data-driven and real-world solutions",
-  body: [
-    "I’m a junior software Engineer with experience across front-end and back-end technologies, building practical, data-driven solutions and integrating APIs into real-world applications.",
-    "I enjoy working in Agile, collaborative environments and tackling complex problems especially projects with real-world impact where I can apply AI and machine learning concepts while continuously growing as an engineer.",
-  ],
+body: [
+  "I’m a junior software engineer with experience across front-end and back-end technologies, designing scalable, data-driven systems and integrating APIs into real-world applications using clean architectural patterns.",
+  "I enjoy working in Agile, collaborative environments and solving complex engineering problems, particularly projects that require thoughtful system design, efficient data modeling, and real-world impact while continuously growing as an engineer.",
+],
   stack: [
     "Java",
     "C# / .NET",
@@ -44,6 +44,15 @@ export const projects: Project[] = [
     github: "https://github.com/TravisDickens/Stock-Market-Analyser",
     demo: "",
   },
+ {
+    title: "Real Time Fleet Monitoring Platform",
+    description:
+      "A real time fleet monitoring system simulating 500 vehicles across Gauteng with live GPS tracking, WebSocket based telemetry streaming, rule-based alert engine, and interactive dashboard with historical data persistence.",
+    tech: ["Java", "Spring Boot", "React", "TypeScript", "PostgreSQL", "WebSocket", "Docker"],
+    github: "https://github.com/TravisDickens/Real-Time-Fleet-Monitoring",
+    demo: "",
+  },
+
   {
     title: "NGO Website & Mobile App",
     description:
@@ -73,7 +82,7 @@ export const experience: Experience[] = [
       "Building and studying AI/ML models to support innovation in audit and data-driven business solutions.",
       "Contributed to internal software projects focused on efficiency, automation, and data-driven decision making.",
       "Collaborated with cross-functional teams to integrate AI into existing business processes.",
-      "Gained hands-on experience with Python, data analytics, and applied machine learning concepts.",
+      "Gained hands-on experience in Software developement, data analytics, and machine learning concepts.",
     ],
   },
 ];
@@ -81,7 +90,7 @@ export const experience: Experience[] = [
 export const skills = [
   {
     category: "Frontend",
-    items: ["HTML", "CSS", "JavaScript", "React.js", "Next.js", "Tailwind CSS"],
+    items: ["HTML", "CSS", "JavaScript", "React.js", "Next.js", "Tailwind CSS", "TypeScript"],
   },
   {
     category: "Backend",
@@ -92,7 +101,7 @@ export const skills = [
     items: ["MongoDB", "MySQL", "Firebase", "Azure", "Docker", "AWS"],
   },
   {
-    category: "Practices & Tools",
+    category: "Tools",
     items: ["Git", "GitHub", "CI/CD", "API Integrations", "CircleCI", "SonarQube"],
   },
 ];

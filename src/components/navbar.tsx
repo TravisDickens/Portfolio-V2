@@ -25,9 +25,7 @@ export function Navbar() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mt-4 flex items-center justify-between rounded-2xl border border-white/10 bg-white/70 px-4 py-3 backdrop-blur-xl shadow-[0_20px_80px_-24px_rgba(0,0,0,0.25)] ring-1 ring-white/5 dark:bg-zinc-950/70">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-white/10 via-white/5 to-white/0 text-sm font-semibold text-white shadow-inner shadow-white/10">
-              TD
-            </div>
+          
             <div className="leading-tight text-sm text-zinc-800 dark:text-zinc-200">
               <p className="font-semibold tracking-tight text-slate-900 dark:text-white">Travis Dickens</p>
               <p className="text-xs text-zinc-500 dark:text-zinc-400">Junior Software Engineer · AI/ML</p>
