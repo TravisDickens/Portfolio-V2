@@ -37,6 +37,15 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Fraud Detection and Risk Scoring System",
+    description:
+      "A real time fraud detection platform that simulates 500-750 financial transactions per minute across South African locations, using ML.NET anomaly detection combined with rule-based risk scoring to flag suspicious activity. Features event-driven data ingestion with Kafka, real-time alerts via SignalR, and an interactive dashboard with risk heatmaps and live alert feeds.",
+    tech: ["C#", "ASP.NET Core", "React", "PostgreSQL", "Kafka", "ML.NET", "SignalR", "Docker"],
+    github: "https://github.com/TravisDickens/Fraud-Detection-and-Risk-Scoring-System",
+    demo: "",
+  },
+
+  {
     title: "Real-Time Stock Market Analyzer",
     description:
       "Full-stack dashboard with live candlestick charts, pattern detection, and algorithmic signal generation. Responsive charts with LightweightCharts and Spring Boot REST APIs serving OHLC data with async updates.",
