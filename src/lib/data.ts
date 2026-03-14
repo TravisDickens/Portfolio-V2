@@ -1,15 +1,15 @@
-export const hero = {
+﻿export const hero = {
   name: "Travis Dickens",
   role: "Junior Software Engineer",
-  tagline: "Building AI and full-stack solutions.",
+  tagline: "Building AI and full-stack software.",
   location: "South Africa",
   availability: "Open to junior software / AI-ML / backend roles",
 };
 
 export const about = {
-  title: "Junior Software Engineer building data-driven and real-world solutions",
+  title: "Junior Software Engineer building data-driven and real-world software",
 body: [
-  "I’m a junior software engineer with experience across front-end and back-end technologies, designing scalable, data-driven systems and integrating APIs into real-world applications using clean architectural patterns.",
+  "I’m a junior software engineer with experience across front-end and back-end technologies, building scalable, data-driven systems and integrating APIs into applications using clean architectural patterns.",
   "I enjoy working in Agile, collaborative environments and solving complex engineering problems, particularly projects that require thoughtful system design, efficient data modeling, and real-world impact while continuously growing as an engineer.",
 ],
   stack: [
@@ -103,16 +103,16 @@ export const education: Education[] = [
 
 export const experience: Experience[] = [
   {
-    company: "Forvis Mazars · Innovation and Technology Hub",
+    company: "Forvis Mazars",
     role: "AI/ML Intern",
     period: "Aug 2025 – Present",
     summary:
-      "Working within the Innovation and Technology Hub to support audit and business teams through AI/ML models and internal software development.",
+      "Working within the Innovation and Technology Hub to enhance audit and business teams through buildingAI/ML models and internal software.",
     highlights: [
-      "Building and studying AI/ML models to support innovation in audit and data-driven business solutions.",
-      "Contributed to internal software projects focused on efficiency, automation, and data-driven decision making.",
-      "Collaborated with cross-functional teams to integrate AI into existing business processes.",
-      "Gained hands-on experience in Software developement, data analytics, and machine learning concepts.",
+      "Building and studying AI/ML models that enhances and improves various departments.",
+      "Contributed and lead internal software development projects that improve efficiency,automation, and data-driven decision making",
+      "Collaborated with cross-functional teams within different departments.",
+      "Gained experience in software development, system design, data analytics, artificial intelligenceand machine learning.",
     ],
   },
 ];

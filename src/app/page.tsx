@@ -100,8 +100,8 @@ function HeroSection() {
             />
             <HighlightCard
               icon={<Braces className="h-4 w-4" />}
-              title="Full-stack delivery"
-              copy="Building reliable backends and usable UIs with Java, .NET, and React, shipping end-to-end features safely."
+              title="Full-stack development"
+              copy="Building reliable software with Java, .NET, and React."
             />
 
           </div>
@@ -113,7 +113,7 @@ function HeroSection() {
           <div className="absolute inset-0 bg-[radial-gradient(120px_circle_at_30%_30%,rgba(52,211,153,0.45),transparent_45%),radial-gradient(180px_circle_at_80%_0%,rgba(14,165,233,0.32),transparent_40%)] opacity-80" />
           <div className="relative flex h-full flex-col justify-between">
             <div className="space-y-2">
-              <p className="text-sm uppercase tracking-[0.24em] text-cyan-100">Now</p>
+              <p className="text-sm uppercase tracking-[0.24em] text-cyan-100">Currently</p>
               <p className="text-2xl font-semibold text-white">Building AI/ML models and full-stack software.</p>
             </div>
             <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-zinc-200 shadow-inner shadow-white/5">
@@ -170,8 +170,8 @@ function ProjectsSection() {
     <Section id="projects" className="mt-24 space-y-8">
       <SectionHeader
         kicker="Projects"
-        title="Projects focused on AI, backend, and real-world software impact."
-        description="Selected work built for real-world usage."
+        title="Projects focused on AI, full-stack development and data-driven software."
+        description="Selected projects I built for real world scenarios."
       />
       <div className="grid gap-6 md:grid-cols-2">
         {projects.map((project) => (
@@ -187,8 +187,8 @@ function ExperienceSection() {
     <Section id="experience" className="mt-24 space-y-8">
       <SectionHeader
         kicker="Experience"
-        title="Where I'm growing."
-        description="Helping teams achieve goals through practical solutions."
+        title="My past experience."
+        description="Growing as a software engineer by building practical software."
       />
       <div className="space-y-4">
         {experience.map((role) => (
@@ -227,7 +227,7 @@ function EducationSection() {
     <Section id="education" className="mt-24 space-y-8">
       <SectionHeader
         kicker="Education"
-        title="What I studied."
+        title="Education and Academic Background."
       />
       <div className="space-y-4">
         {education.map((entry) => (
@@ -266,9 +266,9 @@ function SkillsSection() {
   return (
     <Section id="skills" className="mt-24 space-y-8">
       <SectionHeader
-        kicker="Skills"
-        title="What I bring to the table."
-        description="A balance of design, reliable engineering, and collaborative delivery."
+      kicker="Skills"
+      title="What I Use"
+      description="Technologies and tools I use to build quality software."
       />
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {skills.map((group) => (
@@ -306,7 +306,7 @@ function ContactSection() {
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">
               Contact
             </p>
-            <h3 className="text-3xl font-semibold text-slate-900 dark:text-white">Let&apos;s build something great.</h3>
+            <h3 className="text-3xl font-semibold text-slate-900 dark:text-white">Contact me.</h3>
             <p className="text-lg text-zinc-700 dark:text-zinc-300">
               I’m open to junior software engineering roles across AI/ML, backend, and full-stack development.
             </p>
