@@ -80,6 +80,27 @@ export type Experience = {
   highlights: string[];
 };
 
+export type Education = {
+  institution: string;
+  qualification: string;
+  period: string;
+  badge?: string;
+};
+
+export const education: Education[] = [
+  {
+    institution: "IIE Varsity College",
+    qualification: "Bachelor of Computer and Information Sciences in Application Development",
+    period: "2022 – 2024",
+    badge: "Graduated with distinction",
+  },
+  {
+    institution: "Marburg Secondary School",
+    qualification: "National Senior Certificate",
+    period: "2017 – 2021",
+  },
+];
+
 export const experience: Experience[] = [
   {
     company: "Forvis Mazars · Innovation and Technology Hub",

@@ -6,6 +6,7 @@ import {
   ArrowUpRight,
   Braces,
   Github,
+  GraduationCap,
   Linkedin,
   Mail,
   Palette,
@@ -19,7 +20,7 @@ import { ProjectCard } from "@/components/project-card";
 import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
 import { Button } from "@/components/ui/button";
-import { about, blog, experience, hero, projects, skills } from "@/lib/data";
+import { about, blog, education, experience, hero, projects, skills } from "@/lib/data";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 16 },
@@ -42,6 +43,7 @@ export default function Home() {
           <AboutSection />
           <ProjectsSection />
           <ExperienceSection />
+          <EducationSection />
           <SkillsSection />
           <ContactSection />
          
@@ -213,6 +215,46 @@ function ExperienceSection() {
                 </li>
               ))}
             </ul>
+          </motion.article>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+function EducationSection() {
+  return (
+    <Section id="education" className="mt-24 space-y-8">
+      <SectionHeader
+        kicker="Education"
+        title="What I studied."
+      />
+      <div className="space-y-4">
+        {education.map((entry) => (
+          <motion.article
+            key={entry.institution}
+            variants={fadeIn}
+            className="rounded-2xl border border-black/10 bg-white/80 p-6 shadow-[0_20px_80px_-60px_rgba(0,0,0,0.2)] dark:border-white/10 dark:bg-white/3 dark:shadow-[0_20px_80px_-60px_rgba(0,0,0,0.65)]"
+          >
+            <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+              <div className="flex items-start gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-black/10 bg-white/80 text-cyan-300 dark:border-white/10 dark:bg-white/5 dark:text-cyan-200">
+                  <GraduationCap className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white">{entry.institution}</h3>
+                  <p className="text-zinc-700 dark:text-zinc-300">{entry.qualification}</p>
+                </div>
+              </div>
+              <span className="shrink-0 rounded-full border border-black/10 bg-white/80 px-3 py-1 text-xs font-medium text-slate-800 dark:border-white/10 dark:bg-white/5 dark:text-zinc-200">
+                {entry.period}
+              </span>
+            </div>
+            {entry.badge ? (
+              <span className="mt-3 inline-flex items-center rounded-full border border-amber-200/60 bg-amber-50/80 px-3 py-1 text-xs font-medium text-amber-800 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-200">
+                {entry.badge}
+              </span>
+            ) : null}
           </motion.article>
         ))}
       </div>
