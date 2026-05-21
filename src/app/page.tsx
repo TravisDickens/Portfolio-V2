@@ -150,9 +150,9 @@ function AboutSection() {
         <div className="rounded-2xl border border-black/10 bg-white/70 p-6 shadow-[0_20px_90px_-50px_rgba(0,0,0,0.25)] dark:border-white/10 dark:bg-white/3 dark:shadow-[0_20px_90px_-50px_rgba(0,0,0,0.6)]">
           <p className="text-base leading-relaxed text-zinc-700 dark:text-zinc-300">{about.body[1]}</p>
           <div className="mt-6 flex flex-wrap gap-2">
-            {about.stack.map((item) => (
+            {about.stack.map((item, idx) => (
               <span
-                key={item}
+                key={`${item}-${idx}`}
                 className="rounded-full border border-black/10 bg-white px-3 py-1 text-xs font-medium text-slate-800 shadow-inner shadow-black/5 dark:border-white/10 dark:bg-white/5 dark:text-zinc-100 dark:shadow-white/5"
               >
                 {item}

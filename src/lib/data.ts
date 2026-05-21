@@ -13,17 +13,17 @@ body: [
   "I enjoy working in Agile, collaborative environments and solving complex engineering problems, particularly projects that require thoughtful system design, efficient data modeling, and real-world impact while continuously growing as an engineer.",
 ],
   stack: [
-    "Java",
+    "Java / Spring Boot",
     "C# / .NET",
     "Python",
-    "Spring Boot",
-    "REST APIs",
-    "React.js",
-    "Firebase",
-    "MongoDB",
-    "MySQL",
-    "Azure",
+    "Python",
+    "Node.js",
+    "Redis",
+    "Next.js",
+    "SQL",
     "Git / GitHub",
+    "Docker",
+
   ],
 };
 
@@ -107,12 +107,13 @@ export const experience: Experience[] = [
     role: "AI/ML Intern",
     period: "Aug 2025 – Present",
     summary:
-      "Working within the Innovation and Technology Hub to enhance audit and business teams through buildingAI/ML models and internal software.",
+      "Working within the Innovation and Technology Hub to enhance audit and business teams through building AI/ML models and internal software.",
     highlights: [
-      "Building and studying AI/ML models that enhances and improves various departments.",
-      "Contributed and lead internal software development projects that improve efficiency,automation, and data-driven decision making",
-      "Collaborated with cross-functional teams within different departments.",
-      "Gained experience in software development, system design, data analytics, artificial intelligenceand machine learning.",
+      "Designed and developed Software applications solving real business problems across multiple departments, owning the full software development lifecycle.",
+      "Built backend and full-stack software including APIs and data pipelines handling large volumes of financial data.",
+      "Designed relational databases capable of handling hundreds of thousands to hundreds of millions of financial records, with a focus on schema design, indexing, and query performance.",
+      "Operated with a high degree of autonomy, making core architectural and implementation decisions.",
+      "Translated stakeholder requirements into working technical solutions, bridging the gap between business needs and engineering execution.",
     ],
   },
 ];
@@ -124,15 +125,15 @@ export const skills = [
   },
   {
     category: "Backend",
-    items: ["Java", "C# / .NET", "Python", "Spring Boot", "REST APIs", "Node.js", "Express.js"],
+    items: ["Java", "C# / .NET", "Python", "Spring Boot", "REST APIs", "Node.js"],
   },
   {
     category: "Data and Cloud",
-    items: ["MongoDB", "MySQL", "Firebase", "Azure", "Docker", "AWS"],
+    items: ["SQL", "NoS", "Azure","AWS"],
   },
   {
     category: "Tools",
-    items: ["Git", "GitHub", "CI/CD", "API Integrations", "CircleCI", "SonarQube"],
+    items: ["Git", "GitHub", "CI/CD", "Redis", "Kafka","SonarQube"],
   },
 ];
 
