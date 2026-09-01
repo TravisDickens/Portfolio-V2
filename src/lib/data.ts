@@ -1,29 +1,26 @@
 ﻿export const hero = {
   name: "Travis Dickens",
-  role: "Junior Software Engineer",
-  tagline: "Building AI and full-stack software.",
+  role: "Junior Software Developer",
+  tagline:
+    "Building systems that are reliable, performant, and built to last. Backend services, REST APIs, full-stack applications, and data-driven software, with a growing focus on putting AI and machine learning into production.",
   location: "South Africa",
-  availability: "Open to junior software / AI-ML / backend roles",
+  currentRole: {
+    company: "Forvis Mazars",
+    title: "Junior Developer",
+    period: "Aug 2026 - Present",
+  },
 };
 
 export const about = {
-  title: "Junior Software Engineer building data-driven and real-world software",
-body: [
-  "I’m a junior software engineer with experience across front-end and back-end technologies, building scalable, data-driven systems and integrating APIs into applications using clean architectural patterns.",
-  "I enjoy working in Agile, collaborative environments and solving complex engineering problems, particularly projects that require thoughtful system design, efficient data modeling, and real-world impact while continuously growing as an engineer.",
-],
-  stack: [
-    "Java / Spring Boot",
-    "C# / .NET",
-    "Python",
-    "Python",
-    "Node.js",
-    "Redis",
-    "Next.js",
-    "SQL",
-    "Git / GitHub",
-    "Docker",
-
+  title: "About",
+  body: [
+    "Software developer focused on building systems that are reliable, performant, and built to last. I have experience designing backend services, RESTful APIs, full-stack applications, and data-driven systems, with a growing focus on integrating AI and machine learning into practical software.",
+    "I take ownership of technical decisions, think carefully about system design and architecture, and gravitate toward problems where accuracy and real-world impact actually matter.",
+  ],
+  facts: [
+    { label: "Based in", value: "South Africa" },
+    { label: "Education", value: "Bachelor of Computer and Information Sciences in Application Development." },
+    { label: "Currently", value: "Junior Developer at Forvis Mazars" },
   ],
 };
 
@@ -39,34 +36,32 @@ export const projects: Project[] = [
   {
     title: "Fraud Detection and Risk Scoring System",
     description:
-      "A real time fraud detection platform that simulates 500-750 financial transactions per minute across South African locations, using ML.NET anomaly detection combined with rule-based risk scoring to flag suspicious activity. Features event-driven data ingestion with Kafka, real-time alerts via SignalR, and an interactive dashboard with risk heatmaps and live alert feeds.",
-    tech: ["C#", "ASP.NET Core", "React", "PostgreSQL", "Kafka", "ML.NET", "SignalR", "Docker"],
+      "A full-stack real-time fraud detection platform simulating 500–750 transactions per minute across South African locations. Scores transactions using ML.NET anomaly detection combined with rule-based checks, streaming live scored transactions and alerts to a dashboard via SignalR WebSockets. Dashboard features interactive risk heatmaps, KPI cards, live alert feeds, and filterable transaction tables.",
+    tech: ["C#", ".NET", "React", "PostgreSQL", "Kafka", "ML.NET", "Docker"],
     github: "https://github.com/TravisDickens/Fraud-Detection-and-Risk-Scoring-System",
     demo: "",
   },
-
   {
-    title: "Real-Time Stock Market Analyzer",
+    title: "Real-Time Fleet Monitoring Platform",
     description:
-      "Full-stack dashboard with live candlestick charts, pattern detection, and algorithmic signal generation. Responsive charts with LightweightCharts and Spring Boot REST APIs serving OHLC data with async updates.",
-    tech: ["Java", "Spring Boot", "JavaScript", "REST", "LightweightCharts"],
-    github: "https://github.com/TravisDickens/Stock-Market-Analyser",
-    demo: "",
-  },
- {
-    title: "Real Time Fleet Monitoring Platform",
-    description:
-      "A real time fleet monitoring system simulating 500 vehicles across Gauteng with live GPS tracking, WebSocket based telemetry streaming, rule-based alert engine, and interactive dashboard with historical data persistence.",
-    tech: ["Java", "Spring Boot", "React", "TypeScript", "PostgreSQL", "WebSocket", "Docker"],
+      "A full-stack real-time fleet monitoring dashboard that visualizes live vehicle movement and operational metrics across Gauteng. Simulates 500 vehicles streaming GPS, speed, fuel, and engine temperature data every second via WebSockets. Includes rule-based alerts with severity tiers and cooldown logic to prevent alert flooding.",
+    tech: ["Java", "Spring Boot", "React", "PostgreSQL", "Docker"],
     github: "https://github.com/TravisDickens/Real-Time-Fleet-Monitoring",
     demo: "",
   },
-
   {
-    title: "NGO Website & Mobile App",
+    title: "Real-Time Stock Market Analyzer",
     description:
-      "Event management, volunteer applications, and donation flows with secure Zapper payments. Firebase Auth with role-based access, SMTP notifications, and Kotlin mobile client alongside ASP.NET web experience.",
-    tech: ["ASP.NET", "C#", "Firebase", "SMTP", "Kotlin", "Zapper API"],
+      "A full-stack dashboard that displays real-time candlestick charts and performs technical analysis on market data. Features pattern detection (Doji, Engulfing, Hammers, Morning/Evening Stars) and an algorithmic signal generator using moving average crossovers. Includes a watchlist system with search, dynamic chart rendering across multiple timeframes, and responsive chart UI powered by LightweightCharts.",
+    tech: ["Java", "Spring Boot", "JavaScript", "HTML", "CSS"],
+    github: "https://github.com/TravisDickens/Stock-Market-Analyser",
+    demo: "",
+  },
+  {
+    title: "ILK Foundation — NGO Website & Mobile App",
+    description:
+      "Event management, volunteer applications, and donation flows with secure Zapper payments. Firebase Auth with role-based access, SMTP notifications, and a Kotlin mobile client alongside an ASP.NET web experience.",
+    tech: ["ASP.NET", "C#", "Firebase", "Kotlin", "Zapper API"],
     github: "",
     demo: "https://www.ilkfoundation.co.za/",
   },
@@ -104,48 +99,56 @@ export const education: Education[] = [
 export const experience: Experience[] = [
   {
     company: "Forvis Mazars",
-    role: "AI/ML Intern",
-    period: "Aug 2025 – Present",
+    role: "Junior Developer",
+    period: "Aug 2026 – Present",
     summary:
-      "Working within the Innovation and Technology Hub to enhance audit and business teams through building AI/ML models and internal software.",
+      "Designing and developing software applications to solve business problems across multiple departments.",
     highlights: [
-      "Designed and developed Software applications solving real business problems across multiple departments, owning the full software development lifecycle.",
-      "Built backend and full-stack software including APIs and data pipelines handling large volumes of financial data.",
-      "Designed relational databases capable of handling hundreds of thousands to hundreds of millions of financial records, with a focus on schema design, indexing, and query performance.",
-      "Operated with a high degree of autonomy, making core architectural and implementation decisions.",
-      "Translated stakeholder requirements into working technical solutions, bridging the gap between business needs and engineering execution.",
+      "Owned full delivery lifecycle across multiple projects from stakeholder requirements and system design through to development, operating with minimal oversight.",
+      "Architected and built RESTful APIs and event-driven data pipelines to ingest and process high-volume financial data.",
+      "Designed and optimised relational database schemas in MSSQL, implementing indexing strategies that reduced query latency on large financial datasets.",
+      "Made independent architectural decisions, selecting appropriate patterns and tooling with limited senior oversight in a fast-paced innovation environment.",
+      "Collaborated with non-technical stakeholders to translate business needs into practical technical solutions.",
     ],
+  },
+  {
+    company: "Forvis Mazars",
+    role: "AI/ML Learnership",
+    period: "Aug 2025 – Jul 2026",
+    summary:
+      "Completed a 12-month learnership laying the technical foundation for a subsequent role as Junior Developer.",
+    highlights: [],
   },
 ];
 
 export const skills = [
   {
-    category: "Frontend",
-    items: ["HTML", "CSS", "JavaScript", "React.js", "Next.js", "Tailwind CSS", "TypeScript"],
+    category: "Front-End",
+    items: ["HTML", "CSS", "JavaScript", "React.js", "Next.js", "TypeScript"],
   },
   {
-    category: "Backend",
-    items: ["Java", "C# / .NET", "Python", "Spring Boot", "REST APIs", "Node.js"],
+    category: "Back-End",
+    items: ["Java", "C#", "Python", "Node.js", ".NET", "Spring Boot"],
   },
   {
-    category: "Data and Cloud",
-    items: ["SQL", "NoS", "Azure","AWS"],
+    category: "Databases",
+    items: ["MSSQL", "PostgreSQL", "NoSQL"],
   },
   {
-    category: "Tools",
-    items: ["Git", "GitHub", "CI/CD", "Redis", "Kafka","SonarQube"],
+    category: "Tools and Frameworks",
+    items: ["Docker", "Redis", "Azure", "Kafka"],
+  },
+  {
+    category: "Version Control",
+    items: ["Git", "GitHub"],
   },
 ];
 
 export const contact = {
   email: "Travis.Dickens@outlook.com",
   socials: [
+    { label: "Email", href: "mailto:Travis.Dickens@outlook.com" },
     { label: "GitHub", href: "https://github.com/TravisDickens" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/travis-dickens-010a84250" },
   ],
-};
-
-export const blog = {
-  headline: "Sharing notes on AI/ML learnings, backend patterns, and full-stack experiments.",
-  note: "Writing to document what I’m building next.",
 };
