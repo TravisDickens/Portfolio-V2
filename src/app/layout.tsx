@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { GameModeProvider } from "@/components/game-mode/game-mode-provider";
+import { GameOverlay } from "@/components/game-mode/game-overlay";
 
 const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-serif",
@@ -66,17 +68,10 @@ export default function RootLayout({
         className={`${instrumentSerif.variable} ${plexSans.variable} ${plexMono.variable} antialiased`}
       >
         <ThemeProvider>
-          <div className="relative min-h-screen">
-            <div
-              className="pointer-events-none fixed inset-0 -z-10"
-              aria-hidden
-              style={{
-                background:
-                  "radial-gradient(ellipse 80% 60% at 15% 10%, rgba(201, 132, 74, 0.04), transparent 70%)",
-              }}
-            />
-            {children}
-          </div>
+          <GameModeProvider>
+            <div className="relative min-h-screen">{children}</div>
+            <GameOverlay />
+          </GameModeProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -3,11 +3,12 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import { useGameMode } from "@/components/game-mode/game-mode-provider";
 
 const navLinks = [
   { href: "#about", label: "About" },
+  { href: "#work", label: "Work" },
   { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
   { href: "#education", label: "Education" },
   { href: "#skills", label: "Skills" },
   { href: "#contact", label: "Contact" },
@@ -15,6 +16,7 @@ const navLinks = [
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { startGame, reducedMotion, status } = useGameMode();
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -28,7 +30,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-hairline bg-[var(--bg)]/90 backdrop-blur-sm">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
         <a href="#" className="font-serif text-lg tracking-tight">
           Travis Dickens
         </a>
@@ -51,6 +53,18 @@ export function Navbar() {
           >
             Resume
           </a>
+          {reducedMotion ? (
+            <span className="font-mono text-xs text-muted">Play unavailable</span>
+          ) : (
+            <button
+              type="button"
+              onClick={startGame}
+              disabled={status !== "idle"}
+              className="font-mono text-accent transition hover:underline disabled:opacity-50"
+            >
+              Play
+            </button>
+          )}
         </nav>
 
         <button
@@ -93,6 +107,20 @@ export function Navbar() {
               >
                 Resume
               </Link>
+              {reducedMotion ? (
+                <p className="py-2 font-mono text-xs text-muted">Play unavailable</p>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => {
+                    closeMenu();
+                    startGame();
+                  }}
+                  className="py-2 text-left font-mono text-sm text-accent"
+                >
+                  Play
+                </button>
+              )}
             </div>
           </motion.div>
         )}

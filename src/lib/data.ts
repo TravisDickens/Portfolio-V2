@@ -1,25 +1,29 @@
 ﻿export const hero = {
   name: "Travis Dickens",
   role: "Junior Software Developer",
-  tagline:
-    "Building systems that are reliable, performant, and built to last. Backend services, REST APIs, full-stack applications, and data-driven software, with a growing focus on putting AI and machine learning into production.",
+  prefix: "",
+  fragments: ["Software Developer.", "Data Driven Software.", "Financial Software."],
+  tagline: "I design and build reliable, performant systems from backend services and REST APIs to full-stack applications with growing expertise in deploying AI and ML in production.",  
   location: "South Africa",
   currentRole: {
     company: "Forvis Mazars",
     title: "Junior Developer",
-    period: "Aug 2026 - Present",
+    period: "Aug 2026 – Present",
   },
 };
 
 export const about = {
-  title: "About",
+  title: "about",
   body: [
     "Software developer focused on building systems that are reliable, performant, and built to last. I have experience designing backend services, RESTful APIs, full-stack applications, and data-driven systems, with a growing focus on integrating AI and machine learning into practical software.",
     "I take ownership of technical decisions, think carefully about system design and architecture, and gravitate toward problems where accuracy and real-world impact actually matter.",
   ],
   facts: [
     { label: "Based in", value: "South Africa" },
-    { label: "Education", value: "Bachelor of Computer and Information Sciences in Application Development." },
+    {
+      label: "Education",
+      value: "Bachelor of Computer and Information Sciences in Application Development, distinction",
+    },
     { label: "Currently", value: "Junior Developer at Forvis Mazars" },
   ],
 };
@@ -27,6 +31,7 @@ export const about = {
 export type Project = {
   title: string;
   description: string;
+  shortDescription: string;
   tech: string[];
   github: string;
   demo: string;
@@ -35,6 +40,8 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Fraud Detection and Risk Scoring System",
+    shortDescription:
+      "Real-time fraud scoring for 500–750 transactions a minute across South African locations.",
     description:
       "A full-stack real-time fraud detection platform simulating 500–750 transactions per minute across South African locations. Scores transactions using ML.NET anomaly detection combined with rule-based checks, streaming live scored transactions and alerts to a dashboard via SignalR WebSockets. Dashboard features interactive risk heatmaps, KPI cards, live alert feeds, and filterable transaction tables.",
     tech: ["C#", ".NET", "React", "PostgreSQL", "Kafka", "ML.NET", "Docker"],
@@ -43,6 +50,8 @@ export const projects: Project[] = [
   },
   {
     title: "Real-Time Fleet Monitoring Platform",
+    shortDescription:
+      "Live telemetry for 500 simulated vehicles across Gauteng, with cooldown-aware alerts.",
     description:
       "A full-stack real-time fleet monitoring dashboard that visualizes live vehicle movement and operational metrics across Gauteng. Simulates 500 vehicles streaming GPS, speed, fuel, and engine temperature data every second via WebSockets. Includes rule-based alerts with severity tiers and cooldown logic to prevent alert flooding.",
     tech: ["Java", "Spring Boot", "React", "PostgreSQL", "Docker"],
@@ -51,6 +60,8 @@ export const projects: Project[] = [
   },
   {
     title: "Real-Time Stock Market Analyzer",
+    shortDescription:
+      "Candlestick charts, pattern detection, and moving-average signals on live market data.",
     description:
       "A full-stack dashboard that displays real-time candlestick charts and performs technical analysis on market data. Features pattern detection (Doji, Engulfing, Hammers, Morning/Evening Stars) and an algorithmic signal generator using moving average crossovers. Includes a watchlist system with search, dynamic chart rendering across multiple timeframes, and responsive chart UI powered by LightweightCharts.",
     tech: ["Java", "Spring Boot", "JavaScript", "HTML", "CSS"],
@@ -59,6 +70,8 @@ export const projects: Project[] = [
   },
   {
     title: "ILK Foundation — NGO Website & Mobile App",
+    shortDescription:
+      "Events, volunteers, and donations for a South African NGO, with a live site.",
     description:
       "Event management, volunteer applications, and donation flows with secure Zapper payments. Firebase Auth with role-based access, SMTP notifications, and a Kotlin mobile client alongside an ASP.NET web experience.",
     tech: ["ASP.NET", "C#", "Firebase", "Kotlin", "Zapper API"],
@@ -66,6 +79,8 @@ export const projects: Project[] = [
     demo: "https://www.ilkfoundation.co.za/",
   },
 ];
+
+export const featuredProjects = projects.slice(0, 3);
 
 export type Experience = {
   company: string;
@@ -85,7 +100,8 @@ export type Education = {
 export const education: Education[] = [
   {
     institution: "IIE Varsity College",
-    qualification: "Bachelor of Computer and Information Sciences in Application Development",
+    qualification:
+      "Bachelor of Computer and Information Sciences in Application Development",
     period: "2022 – 2024",
     badge: "Graduated with distinction",
   },
@@ -147,8 +163,10 @@ export const skills = [
 export const contact = {
   email: "Travis.Dickens@outlook.com",
   socials: [
-    { label: "Email", href: "mailto:Travis.Dickens@outlook.com" },
+    { label: "Write me", href: "mailto:Travis.Dickens@outlook.com" },
     { label: "GitHub", href: "https://github.com/TravisDickens" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/travis-dickens-010a84250" },
   ],
 };
+
+export const coins = ["1", "2", "3", "4"] as const;

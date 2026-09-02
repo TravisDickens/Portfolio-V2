@@ -4,13 +4,16 @@ import { motion, MotionConfig } from "framer-motion";
 import Link from "next/link";
 import { Navbar } from "@/components/navbar";
 import { ProjectCard } from "@/components/project-card";
+import { ProjectStrip } from "@/components/project-strip";
+import { ExperienceTabs } from "@/components/experience-tabs";
+import { TypingHero } from "@/components/typing-hero";
+import { HeroTree } from "@/components/hero-tree";
 import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
 import {
   about,
   contact,
   education,
-  experience,
   hero,
   projects,
   skills,
@@ -26,15 +29,18 @@ export default function Home() {
         className="relative"
       >
         <Navbar />
-        <div className="mx-auto max-w-5xl px-4 pb-24 pt-16 sm:px-6 lg:pt-24">
+        <div className="mx-auto max-w-6xl px-4 pb-24 pt-16 sm:px-6 lg:pt-24">
           <HeroSection />
           <AboutSection />
+          <WorkSection />
           <ProjectsSection />
-          <ExperienceSection />
           <EducationSection />
           <SkillsSection />
           <ContactSection />
         </div>
+        <footer className="border-t border-hairline py-8 text-center font-mono text-xs text-muted">
+          Travis Dickens · South Africa
+        </footer>
       </motion.main>
     </MotionConfig>
   );
@@ -65,20 +71,25 @@ function ContactLinks() {
 function HeroSection() {
   return (
     <Section className="border-b border-hairline pb-16 lg:pb-24">
-      <div className="space-y-8">
-        <p className="font-mono text-sm text-accent-secondary">{hero.role}</p>
-        <h1 className="font-serif text-5xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-          {hero.name}
-        </h1>
-        <p className="max-w-2xl text-lg leading-relaxed text-muted">{hero.tagline}</p>
-        <p className="font-mono text-sm text-muted">
-          <span className="text-accent">{hero.currentRole.company}</span>
-          {" · "}
-          {hero.currentRole.title}
-          {" · "}
-          {hero.currentRole.period}
-        </p>
-        <ContactLinks />
+      <div className="lg:grid lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-10">
+        <div className="space-y-8">
+          <TypingHero />
+          <h1 className="font-serif text-5xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+            {hero.name}
+          </h1>
+          <p className="max-w-2xl text-lg leading-relaxed text-muted">{hero.tagline}</p>
+          <p className="font-mono text-sm text-muted">
+            <span className="text-accent">{hero.currentRole.company}</span>
+            {" · "}
+            {hero.currentRole.title}
+            {" · "}
+            {hero.currentRole.period}
+          </p>
+          <ContactLinks />
+        </div>
+        <div className="mt-12 hidden lg:mt-0 lg:block">
+          <HeroTree />
+        </div>
       </div>
     </Section>
   );
@@ -89,7 +100,7 @@ function AboutSection() {
     <Section id="about" className="border-b border-hairline py-16 lg:py-24">
       <div className="grid gap-12 lg:grid-cols-[1.4fr_0.6fr] lg:gap-16">
         <div className="space-y-6">
-          <SectionHeader title={about.title} />
+          <SectionHeader index="01" title={about.title} />
           {about.body.map((paragraph) => (
             <p key={paragraph.slice(0, 40)} className="leading-relaxed text-muted">
               {paragraph}
@@ -111,51 +122,28 @@ function AboutSection() {
   );
 }
 
-function ProjectsSection() {
+function WorkSection() {
   return (
-    <Section id="projects" className="border-b border-hairline py-16 lg:py-24">
-      <SectionHeader title="Projects" />
+    <Section id="work" className="border-b border-hairline py-16 lg:py-24">
+      <SectionHeader index="02" title="work" />
       <div className="mt-10">
-        {projects.map((project, index) => (
-          <ProjectCard key={project.title} project={project} index={index} />
-        ))}
+        <ExperienceTabs />
       </div>
     </Section>
   );
 }
 
-function ExperienceSection() {
+function ProjectsSection() {
   return (
-    <Section id="experience" className="border-b border-hairline py-16 lg:py-24">
-      <SectionHeader title="Experience" />
-      <div className="mt-10 space-y-12">
-        {experience.map((role) => (
-          <article
-            key={`${role.company}-${role.role}`}
-            className="grid gap-4 sm:grid-cols-[10rem_1fr] sm:gap-8"
-          >
-            <p className="font-mono text-sm text-muted">{role.period}</p>
-            <div className="space-y-3">
-              <div>
-                <h3 className="font-serif text-xl">{role.role}</h3>
-                <p className="text-muted">{role.company}</p>
-              </div>
-              <p className="leading-relaxed text-muted">{role.summary}</p>
-              {role.highlights.length > 0 ? (
-                <ul className="space-y-2 text-sm leading-relaxed text-muted">
-                  {role.highlights.map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <span className="text-accent" aria-hidden>
-                        —
-                      </span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
-            </div>
-          </article>
-        ))}
+    <Section id="projects" className="border-b border-hairline py-16 lg:py-24">
+      <SectionHeader index="03" title="projects" />
+      <div className="mt-10">
+        <ProjectStrip />
+        <div className="mt-12">
+          {projects.map((project, index) => (
+            <ProjectCard key={project.title} project={project} index={index} />
+          ))}
+        </div>
       </div>
     </Section>
   );
@@ -164,7 +152,7 @@ function ExperienceSection() {
 function EducationSection() {
   return (
     <Section id="education" className="border-b border-hairline py-16 lg:py-24">
-      <SectionHeader title="Education" />
+      <SectionHeader index="04" title="education" />
       <div className="mt-10 space-y-8">
         {education.map((entry) => (
           <article
@@ -189,14 +177,14 @@ function EducationSection() {
 function SkillsSection() {
   return (
     <Section id="skills" className="border-b border-hairline py-16 lg:py-24">
-      <SectionHeader title="Skills" />
+      <SectionHeader index="05" title="skills" />
       <div className="mt-10 space-y-6">
         {skills.map((group) => (
           <div
             key={group.category}
             className="grid gap-2 border-t border-hairline pt-6 sm:grid-cols-[10rem_1fr] sm:gap-8"
           >
-            <p className="font-mono text-xs uppercase tracking-wider text-accent-secondary">
+            <p className="font-mono text-xs uppercase tracking-wider text-accent">
               {group.category}
             </p>
             <p className="text-sm leading-relaxed">{group.items.join(" · ")}</p>
@@ -210,7 +198,8 @@ function SkillsSection() {
 function ContactSection() {
   return (
     <Section id="contact" className="py-16 lg:py-24">
-      <div className="border-t-2 border-accent bg-accent-soft p-8 sm:p-10">
+      <SectionHeader index="06" title="contact" />
+      <div className="mt-10 border-t-2 border-accent bg-accent-soft p-8 sm:p-10">
         <p className="font-serif text-2xl tracking-tight sm:text-3xl">
           Open to junior software roles.
         </p>
