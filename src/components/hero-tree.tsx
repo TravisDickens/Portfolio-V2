@@ -32,17 +32,25 @@ export function HeroTree() {
     if (reduced) return;
 
     let step = 0;
-    const id = window.setInterval(() => {
-      if (step >= PREORDER.length) {
-        window.clearInterval(id);
-        window.setTimeout(() => setVisit(-1), 420);
+    let timer = 0;
+
+    const tick = () => {
+      if (step < PREORDER.length) {
+        setVisit(step);
+        step += 1;
+        timer = window.setTimeout(tick, 400);
         return;
       }
-      setVisit(step);
-      step += 1;
-    }, 400);
 
-    return () => window.clearInterval(id);
+      timer = window.setTimeout(() => {
+        setVisit(-1);
+        step = 0;
+        timer = window.setTimeout(tick, 3000);
+      }, 420);
+    };
+
+    timer = window.setTimeout(tick, 400);
+    return () => window.clearTimeout(timer);
   }, []);
 
   const nodes: TreeNode[] = [

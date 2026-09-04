@@ -9,7 +9,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { coins } from "@/lib/data";
+import { WORLDS, WORLD_SECTIONS } from "./game-physics";
 
 export type GameStatus = "idle" | "playing" | "won" | "lost";
 
@@ -17,19 +17,33 @@ type GameModeContextValue = {
   isPlaying: boolean;
   status: GameStatus;
   collected: string[];
+  worldIndex: number;
+  runId: number;
   reducedMotion: boolean;
   startGame: () => void;
   endGame: () => void;
   restartGame: () => void;
+  retryWorld: () => void;
   collectPacket: (id: string) => void;
   loseGame: () => void;
 };
 
 const GameModeContext = createContext<GameModeContextValue | null>(null);
 
+function scrollToWorld(index: number) {
+  const selector = WORLD_SECTIONS[index];
+  if (!selector) {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
+  document.querySelector(selector)?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 export function GameModeProvider({ children }: { children: ReactNode }) {
   const [status, setStatus] = useState<GameStatus>("idle");
   const [collected, setCollected] = useState<string[]>([]);
+  const [worldIndex, setWorldIndex] = useState(0);
+  const [runId, setRunId] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -42,8 +56,10 @@ export function GameModeProvider({ children }: { children: ReactNode }) {
 
   const startGame = useCallback(() => {
     if (reducedMotion) return;
-    window.scrollTo({ top: 0, behavior: "instant" });
+    window.scrollTo({ top: 0, behavior: "auto" });
     setCollected([]);
+    setWorldIndex(0);
+    setRunId((n) => n + 1);
     setStatus("playing");
     document.body.classList.add("game-locked");
   }, [reducedMotion]);
@@ -51,30 +67,55 @@ export function GameModeProvider({ children }: { children: ReactNode }) {
   const endGame = useCallback(() => {
     setStatus("idle");
     setCollected([]);
+    setWorldIndex(0);
     document.body.classList.remove("game-locked");
   }, []);
 
   const restartGame = useCallback(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
+    window.scrollTo({ top: 0, behavior: "auto" });
     setCollected([]);
+    setWorldIndex(0);
+    setRunId((n) => n + 1);
+    setStatus("playing");
+    document.body.classList.add("game-locked");
+  }, []);
+
+  const retryWorld = useCallback(() => {
+    setCollected([]);
+    setRunId((n) => n + 1);
     setStatus("playing");
     document.body.classList.add("game-locked");
   }, []);
 
   const collectPacket = useCallback((id: string) => {
-    setCollected((prev) => {
-      if (prev.includes(id)) return prev;
-      const next = [...prev, id];
-      if (next.length >= coins.length) {
-        setStatus("won");
-      }
-      return next;
-    });
+    setCollected((prev) => (prev.includes(id) ? prev : [...prev, id]));
   }, []);
 
   const loseGame = useCallback(() => {
     setStatus("lost");
   }, []);
+
+  useEffect(() => {
+    if (status !== "playing") return;
+    const needed = WORLDS[worldIndex].coinCount;
+    if (collected.length < needed) return;
+
+    const timer = window.setTimeout(() => {
+      if (worldIndex >= WORLDS.length - 1) {
+        setStatus("won");
+        document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
+
+      const next = worldIndex + 1;
+      setWorldIndex(next);
+      setCollected([]);
+      setRunId((n) => n + 1);
+      scrollToWorld(next - 1);
+    }, 550);
+
+    return () => window.clearTimeout(timer);
+  }, [collected, worldIndex, status]);
 
   useEffect(() => {
     if (status === "idle") return;
@@ -97,20 +138,26 @@ export function GameModeProvider({ children }: { children: ReactNode }) {
       isPlaying: status === "playing",
       status,
       collected,
+      worldIndex,
+      runId,
       reducedMotion,
       startGame,
       endGame,
       restartGame,
+      retryWorld,
       collectPacket,
       loseGame,
     }),
     [
       status,
       collected,
+      worldIndex,
+      runId,
       reducedMotion,
       startGame,
       endGame,
       restartGame,
+      retryWorld,
       collectPacket,
       loseGame,
     ],

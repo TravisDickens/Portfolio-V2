@@ -180,3 +180,31 @@ a {
 .tree-node-link:focus-visible .tree-node-root {
   fill: var(--accent);
 }
+
+@keyframes game-coin-fall {
+  from {
+    transform: translate3d(0, -12vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  to {
+    transform: translate3d(var(--coin-drift, 16px), 118vh, 0) rotate(var(--coin-spin, 540deg));
+    opacity: 0.9;
+  }
+}
+
+.game-coin-rain {
+  animation-name: game-coin-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-coin-rain {
+    animation: none;
+    display: none;
+  }
+}

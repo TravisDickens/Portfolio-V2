@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { coins } from "@/lib/data";
 import { useGameMode } from "./game-mode-provider";
 import { GameUi } from "./game-ui";
 import {
@@ -9,6 +8,7 @@ import {
   createCourse,
   createPlayer,
   stepPlayer,
+  WORLDS,
   type Course,
   type Player,
 } from "./game-physics";
@@ -65,16 +65,42 @@ function drawFlipped(
   ctx.restore();
 }
 
+function drawWoodGround(ctx: CanvasRenderingContext2D, course: Course) {
+  const { x, y, w } = course.ground;
+  ctx.fillStyle = "#5c3a21";
+  ctx.fillRect(x, y, w, 10);
+  ctx.fillStyle = "#7a4b22";
+  ctx.fillRect(x, y, w, 3);
+  ctx.strokeStyle = "rgba(61, 36, 18, 0.55)";
+  ctx.lineWidth = 1;
+  for (let plank = 0; plank < w; plank += 52) {
+    ctx.beginPath();
+    ctx.moveTo(plank, y);
+    ctx.lineTo(plank, y + 10);
+    ctx.stroke();
+  }
+  ctx.strokeStyle = "rgba(196, 165, 116, 0.28)";
+  ctx.beginPath();
+  ctx.moveTo(x, y + 10);
+  ctx.lineTo(x + w, y + 10);
+  ctx.stroke();
+}
+
 export function GameOverlay() {
-  const { status, isPlaying, collectPacket, loseGame } = useGameMode();
+  const { status, isPlaying, collectPacket, loseGame, worldIndex, runId } = useGameMode();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const playerRef = useRef<Player | null>(null);
   const courseRef = useRef<Course | null>(null);
   const spritesRef = useRef<Sprites | null>(null);
+  const worldIndexRef = useRef(worldIndex);
   const runClockRef = useRef(0);
   const inputRef = useRef({ left: false, right: false, jump: false });
   const collectPacketRef = useRef(collectPacket);
   const loseGameRef = useRef(loseGame);
+
+  useEffect(() => {
+    worldIndexRef.current = worldIndex;
+  }, [worldIndex]);
 
   useEffect(() => {
     collectPacketRef.current = collectPacket;
@@ -94,9 +120,10 @@ export function GameOverlay() {
     const layout = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      courseRef.current = createCourse(canvas.width, canvas.height, coins);
+      courseRef.current = createCourse(canvas.width, canvas.height, worldIndex);
       const ground = courseRef.current.ground;
       playerRef.current = createPlayer(36, ground.y - 40);
+      runClockRef.current = 0;
     };
 
     layout();
@@ -110,7 +137,7 @@ export function GameOverlay() {
       });
 
     return () => window.removeEventListener("resize", layout);
-  }, [status]);
+  }, [status, worldIndex, runId]);
 
   useEffect(() => {
     if (!isPlaying) return;
@@ -178,9 +205,10 @@ export function GameOverlay() {
       last = now;
       const course = courseRef.current;
       const sprites = spritesRef.current;
+      const speedScale = WORLDS[worldIndexRef.current]?.speed ?? 1;
 
       if (playerRef.current && course) {
-        const stepped = stepPlayer(playerRef.current, dt, inputRef.current, course);
+        const stepped = stepPlayer(playerRef.current, dt, inputRef.current, course, speedScale);
         playerRef.current = stepped.player;
         if (Math.abs(playerRef.current.vx) > 0 && playerRef.current.grounded) {
           runClockRef.current += dt;
@@ -206,8 +234,7 @@ export function GameOverlay() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       if (course) {
-        ctx.fillStyle = "rgba(100, 255, 218, 0.35)";
-        ctx.fillRect(course.ground.x, course.ground.y, course.ground.w, 3);
+        drawWoodGround(ctx, course);
 
         for (const obstacle of course.obstacles) {
           const image = sprites
@@ -218,8 +245,8 @@ export function GameOverlay() {
           if (image) {
             ctx.drawImage(image, obstacle.x, obstacle.y, obstacle.w, obstacle.h);
           } else {
-            ctx.fillStyle = "#112240";
-            ctx.strokeStyle = "#64ffda";
+            ctx.fillStyle = obstacle.sprite === "crate" ? "#8b5a2b" : "#6b3f1f";
+            ctx.strokeStyle = "#3d2412";
             ctx.lineWidth = 2;
             ctx.fillRect(obstacle.x, obstacle.y, obstacle.w, obstacle.h);
             ctx.strokeRect(obstacle.x, obstacle.y, obstacle.w, obstacle.h);
@@ -231,10 +258,13 @@ export function GameOverlay() {
           if (sprites) {
             ctx.drawImage(sprites.coin, coin.x, coin.y, coin.w, coin.h);
           } else {
-            ctx.fillStyle = "#64ffda";
+            ctx.fillStyle = "#e6b422";
+            ctx.strokeStyle = "#c9a227";
+            ctx.lineWidth = 2;
             ctx.beginPath();
             ctx.arc(coin.x + coin.w / 2, coin.y + coin.h / 2, coin.w / 2, 0, Math.PI * 2);
             ctx.fill();
+            ctx.stroke();
           }
         }
       }
