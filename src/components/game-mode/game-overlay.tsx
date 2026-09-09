@@ -280,7 +280,7 @@ export function GameOverlay() {
         if (pose) {
           drawFlipped(ctx, pose, player.x, player.y, player.w, player.h, player.facing);
         } else {
-          ctx.fillStyle = "#64ffda";
+          ctx.fillStyle = "#a8d4ff";
           ctx.fillRect(player.x, player.y, player.w, player.h);
         }
       }
